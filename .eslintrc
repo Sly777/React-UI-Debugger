@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-confusing-arrow": 0,
+    "react/no-find-dom-node": 0,
+    "no-param-reassign": 0
+  },
+  "globals": {
+    "__DEV__": true
+  }
+}

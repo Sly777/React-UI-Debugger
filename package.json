@@ -1,0 +1,63 @@
+{
+  "name": "react-ui-debugger",
+  "version": "0.0.0-development",
+  "homepage": "https://github.com/Sly777/React-UI-Debugger",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sly777/React-UI-Debugger.git"
+  },
+  "description": "React Render Debugger on UI (with React Perf tools)",
+  "main": "build/react-ui-debugger.js",
+  "scripts": {
+    "test": "npm run lint && mocha",
+    "build:dev": "babel src/index.js --out-file build/react-ui-debugger.js",
+    "build": "NODE_ENV=production npm run build:dev && npm run test",
+    "watch": "npm run test && babel src/index.js --watch --out-file build/react-ui-debugger.js",
+    "lint": "eslint src/**",
+    "fix": "eslint src/** --fix",
+    "publish": "git pull origin master --rebase && npm run build",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "prepush": "npm test",
+    "commitmsg": "validate-commit-msg",
+    "commit": "git-cz"
+  },
+  "keywords": [
+    "react",
+    "debugger",
+    "ui",
+    "test",
+    "render",
+    "decorator"
+  ],
+  "author": "Ilker Guller <me@ilkerguller.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-addons-perf": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-babili": "^0.0.9",
+    "babel-preset-env": "^1.1.4",
+    "chai": "^3.5.0",
+    "commitizen": "^2.9.3",
+    "enzyme": "^2.7.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "husky": "^0.12.0",
+    "mocha": "^3.2.0",
+    "react-addons-test-utils": "^15.4.1",
+    "semantic-release": "^6.3.2",
+    "validate-commit-msg": "^2.8.2"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "warnOnFail": true,
+      "helpMessage": "It has commit message problem: \n\n %s"
+    }
+  }
+}
