@@ -8,6 +8,10 @@ node_js:
   - '7'
   - '6'
   - '4'
+install:
+  - npm install -g babel-cli
+  - npm install -g eslint
+  - npm install -g semantic-release
 script:
   - npm run build
 after_success:
