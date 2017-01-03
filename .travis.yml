@@ -1,5 +1,5 @@
 language: node_js
-sudo: false
+sudo: required
 cache:
   yarn: true
   directories:
@@ -10,6 +10,7 @@ node_js:
   - '4'
 before_script:
   - npm prune
+  - npm install
 after_success:
   - npm run semantic-release
 branches:
