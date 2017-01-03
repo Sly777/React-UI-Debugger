@@ -9,17 +9,17 @@
   "description": "React Render Debugger on UI (with React Perf tools)",
   "main": "build/react-ui-debugger.js",
   "scripts": {
-    "test": "npm run lint && ./node_modules/.bin/mocha",
-    "build:dev": "./node_modules/.bin/babel src/index.js --out-file build/react-ui-debugger.js",
+    "test": "npm run lint && ./node_modules/mocha/bin/mocha",
+    "build:dev": "./node_modules/babel-cli/bin/babel src/index.js --out-file build/react-ui-debugger.js",
     "build": "NODE_ENV=production npm run build:dev && npm run test",
-    "watch": "npm run test && ./node_modules/.bin/babel src/index.js --watch --out-file build/react-ui-debugger.js",
-    "lint": "./node_modules/.bin/eslint src/**",
-    "fix": "./node_modules/.bin/eslint src/** --fix",
+    "watch": "npm run test && ./node_modules/babel-cli/bin/babel src/index.js --watch --out-file build/react-ui-debugger.js",
+    "lint": "./node_modules/eslint/bin/eslint src/**",
+    "fix": "./node_modules/eslint/bin/eslint src/** --fix",
     "publish": "git pull origin master --rebase && npm run build",
-    "semantic-release": "./node_modules/.bin/semantic-release pre && npm publish && ./node_modules/.bin/semantic-release post",
+    "semantic-release": "./node_modules/semantic-release/bin/semantic-release pre && npm publish && ./node_modules/semantic-release/bin/semantic-release post",
     "prepush": "npm test",
-    "commitmsg": "./node_modules/.bin/validate-commit-msg",
-    "commit": "./node_modules/.bin/git-cz"
+    "commitmsg": "validate-commit-msg",
+    "commit": "git-cz"
   },
   "keywords": [
     "react",
