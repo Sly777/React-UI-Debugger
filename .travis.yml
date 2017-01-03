@@ -8,10 +8,8 @@ node_js:
   - '7'
   - '6'
   - '4'
-install:
-  - yarn global add babel-cli
-  - yarn global add eslint
-  - yarn global add semantic-release
+before_install:
+  - export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 script:
   - npm run build
 before_script:
@@ -23,3 +21,9 @@ branches:
     - /^v\d+\.\d+\.\d+$/
 cache:
   yarn: true
+dependencies:
+  pre:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash
+    - yarn global add babel-cli
+    - yarn global add eslint
+    - yarn global add semantic-release
