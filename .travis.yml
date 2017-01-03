@@ -11,6 +11,8 @@ node_js:
 before_script:
   - npm prune
   - npm install --only=dev
+script:
+  - npm run build
 after_success:
   - npm run semantic-release
 branches:
