@@ -11,12 +11,12 @@ node_js:
   - '4'
 before_install:
   - export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-  - npm install -g babel-cli
-  - npm install -g eslint
-  - npm install -g semantic-release
 script:
   - npm run build
 before_script:
+  - npm install -g babel-cli
+  - npm install -g eslint
+  - npm install -g semantic-release
   - npm prune
 after_success:
   - npm run semantic-release
