@@ -10,7 +10,7 @@ node_js:
   - '4'
 before_script:
   - npm prune
-  - npm install
+  - npm install --only=dev
 after_success:
   - npm run semantic-release
 branches:
