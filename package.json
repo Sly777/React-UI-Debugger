@@ -27,7 +27,8 @@
     "ui",
     "test",
     "render",
-    "decorator"
+    "decorator",
+    "performance"
   ],
   "author": "Ilker Guller <me@ilkerguller.com>",
   "license": "MIT",

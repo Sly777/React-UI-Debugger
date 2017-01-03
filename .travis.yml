@@ -8,6 +8,10 @@ node_js:
   - '7'
   - '6'
   - '4'
+install:
+  - yarn global add babel-cli
+  - yarn global add eslint
+  - yarn global add semantic-release
 script:
   - npm run build
 before_script:
@@ -17,3 +21,5 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+cache:
+  yarn: true
