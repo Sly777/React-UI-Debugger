@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import Perf from 'react-addons-perf';
 
 const setDefault = func => (typeof func !== 'function') ? () => {} : func;
 
@@ -74,6 +75,7 @@ function ReactUIDebugger(target) {
 
   target.prototype.componentWillMount = function componentWillMount() {
     resetCounts();
+    Perf.start();
     original.componentWillMount.call(this);
   };
 
@@ -93,7 +95,11 @@ function ReactUIDebugger(target) {
 
   target.prototype.componentWillUnmount = function componentWillUnmount() {
     target.showDebugCounts();
+    Perf.stop();
     original.componentWillUnmount.call(this);
+    const measurements = Perf.getLastMeasurements();
+    Perf.printInclusive(measurements);
+    Perf.printWasted(measurements);
   };
 
   target.prototype.showDebugCounts = () => {
