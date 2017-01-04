@@ -60,8 +60,7 @@
   },
   "config": {
     "validate-commit-msg": {
-      "warnOnFail": true,
-      "helpMessage": "It has commit message problem: \n\n %s"
+      "warnOnFail": true
     }
   }
 }
