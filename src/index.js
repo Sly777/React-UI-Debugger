@@ -47,13 +47,13 @@ const highlightChanges = (change) => {
   });
 };
 
-function ReactUIDebugger(target) {
+function ReactUIDebugger(target = {}) {
   if (
     (typeof __DEV__ !== 'undefined' && !__DEV__) ||
     (typeof target.UIdebugActive !== 'undefined' && !target.UIdebugActive)
   ) { return target; }
 
-  if (!target.prototype) target.prototype = {};
+  if (!target && !target.prototype) target.prototype = {};
 
   const original = {
     componentWillMount: setDefault(target.prototype.componentWillMount),
@@ -71,6 +71,11 @@ function ReactUIDebugger(target) {
   const resetCounts = () => {
     counts.mount = 0;
     counts.update = 0;
+  };
+
+  target.showDebugCounts = () => {
+    log(target, 'component will unmount', 'UI Change Counts : ', counts);
+    return counts;
   };
 
   target.prototype.componentWillMount = function componentWillMount() {
@@ -96,15 +101,10 @@ function ReactUIDebugger(target) {
   target.prototype.componentWillUnmount = function componentWillUnmount() {
     target.showDebugCounts();
     Perf.stop();
-    original.componentWillUnmount.call(this);
     const measurements = Perf.getLastMeasurements();
     Perf.printInclusive(measurements);
     Perf.printWasted(measurements);
-  };
-
-  target.prototype.showDebugCounts = () => {
-    log(target, 'component will unmount', 'UI Change Counts : ', counts);
-    return counts;
+    original.componentWillUnmount.call(this);
   };
 
   log(target, 'active');

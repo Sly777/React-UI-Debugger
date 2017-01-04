@@ -11,6 +11,8 @@
 
 To see what's going on react UI. You can use it as decorator (**@ReactUIDebugger**) or as function (**ReactUIDebugger(MyComponent)**).
 
+![](http://i.giphy.com/l0HlP3lQR9MsSmo80.gif)
+
 ### Prerequisites
 
 on NPM
