@@ -1,10 +1,13 @@
 {
   "name": "react-ui-debugger",
-  "version": "0.0.0-development",
+  "version": "0.0.4",
   "homepage": "https://github.com/Sly777/React-UI-Debugger",
   "repository": {
     "type": "git",
     "url": "https://github.com/Sly777/React-UI-Debugger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sly777/React-UI-Debugger/issues"
   },
   "description": "React Render Debugger on UI (with React Perf tools)",
   "main": "build/react-ui-debugger.js",
