@@ -30,7 +30,9 @@ const settings = {
   },
 };
 
-const highlightChanges = (change) => {
+const highlightChanges = function highlightChanges(change) {
+  if (typeof __TEST__ !== 'undefined' && __TEST__) return;
+
   const targetDOM = ReactDOM.findDOMNode(this);
   if (!targetDOM) return;
 
@@ -73,11 +75,12 @@ function ReactUIDebugger(target = {}) {
     counts.update = 0;
   };
 
-  target.showDebugCounts = () => {
+  const showDebugCounts = () => {
     log(target, 'component will unmount', 'UI Change Counts : ', counts);
     return counts;
   };
 
+  target.prototype.showDebugCounts = showDebugCounts;
   target.prototype.componentWillMount = function componentWillMount() {
     resetCounts();
     Perf.start();
@@ -99,7 +102,7 @@ function ReactUIDebugger(target = {}) {
   };
 
   target.prototype.componentWillUnmount = function componentWillUnmount() {
-    target.showDebugCounts();
+    showDebugCounts();
     Perf.stop();
     const measurements = Perf.getLastMeasurements();
     Perf.printInclusive(measurements);

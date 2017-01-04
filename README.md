@@ -11,7 +11,7 @@
 
 To see what's going on react UI. You can use it as decorator (**@ReactUIDebugger**) or as function (**ReactUIDebugger(MyComponent)**).
 
-![](http://i.giphy.com/l0HlP3lQR9MsSmo80.gif)
+![](http://i.giphy.com/26FLgFcYIEXxHNLeo.gif)
 
 ### Prerequisites
 
@@ -64,6 +64,8 @@ export default ReactUIDebugger(Hello);
 ```
 
 **If you have __DEV__ variable and __DEV__ is false or if you set UIdebugActive false inside of component, it will not work.**
+
+When it start to work, it will show colored borders of components that you use with ReactUIDebugger. **Red** means componentDidMount, **Green** means componentDidUpdate.
 
 ## Built With
 
